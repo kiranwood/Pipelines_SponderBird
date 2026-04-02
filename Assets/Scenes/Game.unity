@@ -1436,7 +1436,7 @@ MonoBehaviour:
   bird: {fileID: 105461280}
   pipeSpawner: {fileID: 1489760894}
   startPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1816557700}
 --- !u!4 &1248031898
 Transform:
   m_ObjectHideFlags: 0
