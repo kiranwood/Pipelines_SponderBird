@@ -52,7 +52,7 @@ var FirebaseBridgeLib = {
 
         var headers = {
             "Content-type": "application/json",
-            "Authorization": "Bearer" + auth.idToken
+            "Authorization": "Bearer " + auth.idToken
         };
 
         var scoreDoc = {
