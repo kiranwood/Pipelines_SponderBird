@@ -87,7 +87,7 @@ var FirebaseBridgeLib = {
 
                 if (doc.fields) {
                     if (doc.fields.highScore) currentHigh = parseInt(doc.fields.highScore.integerValue || "0");
-                    if (doc.fields.gamesPlayed) currentGames = parseInt(doc.fields.gamesPlayed.integerValue }} "0")
+                    if (doc.fields.gamesPlayed) currentGames = parseInt(doc.fields.gamesPlayed.integerValue || "0");
                 }
 
                 var newHigh = Math.max(currentHigh, parsed.score);
@@ -103,7 +103,7 @@ var FirebaseBridgeLib = {
                 return fetch(userDocUrl + "?updateMask.fieldPaths=highScore&updateMask.fieldPaths=gamesPlayed", {
                     method: "PATCH",
                     headers: headers,
-                    body: JSON.stringify(patchBody);
+                    body: JSON.stringify(patchBody)
                 });
             })
             .then(function (res) { return res.json; })
