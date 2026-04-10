@@ -6,14 +6,14 @@ var FirebaseBridgeLib = {
 
         function handleAuth(data) {
             window.__fbAuth.uid = data.uid;
-            window.__fbAuth.idToken = data.idToken;
-            window.__fbAuth.displayName = data.displayName || "Player";
+            window.__fAuth.idToken = data.idToken;
+            window.__fAuth.displayName = data.displayName || "Player";
             window.__fbAuth.projectId = data.projectId || "";
 
             var payload = JSON.stringify(window.__fbAuth);
             SendMessage("FirebaseManager", "OnAuthReceived", payload);
 
-            if (window.parent && window.parent !== window) {
+            if (window.parent && window.parent != window) {
                 window.parent.postMessage({type: "firebase-auth-ack"}, "*");
                 console.log("Send ack to portal");
             }
