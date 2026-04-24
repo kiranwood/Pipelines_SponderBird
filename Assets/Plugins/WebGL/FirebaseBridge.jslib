@@ -11,7 +11,7 @@ var FirebaseBridgeLib = {
             window.__fbAuth.projectId = data.projectId || "";
 
             var payload = JSON.stringify(window.__fbAuth);
-            SendMessage("FirebaseManager", "OnAuthReceived", payload);
+            SendMessage("GameManager ", "OnAuthReceived", payload);
 
             if (window.parent && window.parent !== window) {
                 window.parent.postMessage({type: "firebase-auth-ack"}, "*");
@@ -34,7 +34,7 @@ var FirebaseBridgeLib = {
         // For reloading the game
         if (window.__fbAuth && window.__fbAuth.uid && window.__fbAuth.idToken) {
             var payload = JSON.stringify(window.__fbAuth);
-            SendMessage("FirebaseManager", "OnAuthReceived", payload);
+            SendMessage("GameManager ", "OnAuthReceived", payload);
         }
     },
 
@@ -48,7 +48,7 @@ var FirebaseBridgeLib = {
             return;
         }
 
-        var baseUrl = "https://firestore.googleapis.com/v1/projects" + auth.projectId + "/databases(default)/documents";
+        var baseUrl = "https://firestore.googleapis.com/v1/projects/" + auth.projectId + "/databases(default)/documents";
 
         var headers = {
             "Content-type": "application/json",
