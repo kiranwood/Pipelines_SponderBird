@@ -49,6 +49,10 @@ var FirebaseBridgeLib = {
             return;
         }
 
+        console.log("auth received:", JSON.stringify(auth));
+console.log("idToken:", auth ? auth.idToken : "AUTH IS NULL");
+console.log("projectId:", auth ? auth.projectId : "AUTH IS NULL");
+
         var baseUrl = "https://firestore.googleapis.com/v1/projects/" + auth.projectId + "/databases(default)/documents";
 
         var headers = {
