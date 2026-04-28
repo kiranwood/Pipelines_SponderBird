@@ -50,11 +50,11 @@ var FirebaseBridgeLib = {
         }
 
         var payload = JSON.parse(atob(auth.idToken.split('.')[1]));
-console.log("Token expires at:", new Date(payload.exp * 1000));
-console.log("Current time:", new Date());
-console.log("Is expired:", Date.now() >= payload.exp * 1000);
+        console.log("Token expires at:", new Date(payload.exp * 1000));
+        console.log("Current time:", new Date());
+        console.log("Is expired:", Date.now() >= payload.exp * 1000);
 
-        var baseUrl = "https://firestore.googleapis.com/v1/projects/" + auth.projectId + "/databases(default)/documents";
+        var baseUrl = "https://firestore.googleapis.com/v1/projects/" + auth.projectId + "/databases/(default)/documents";
 
         var headers = {
             "Content-type": "application/json",
