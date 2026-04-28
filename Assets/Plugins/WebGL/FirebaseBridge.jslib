@@ -41,6 +41,7 @@ var FirebaseBridgeLib = {
     SubmitScoreToFirestore: function (jsonBodyPtr) {
         var jsonBody = UTF8ToString(jsonBodyPtr);
         var parsed = JSON.parse(jsonBody);
+        console.log("Submit Score");
 
         var auth = window.__fbAuth;
         if (!auth || !auth.idToken || !auth.projectId) {
@@ -74,6 +75,8 @@ var FirebaseBridgeLib = {
             .then(function (data) { console.log("Score saved: ", data.name); })
             .catch(function (err) { console.error("Score POST failed", err); } )
 
+        console.log("Submit Scores???");
+
         var userDocUrl = baseUrl + "/users/" + auth.uid;
 
         fetch(userDocUrl, {
@@ -84,6 +87,7 @@ var FirebaseBridgeLib = {
             .then(function (doc) {
                 var curentHigh = 0;
                 var currentGames = 0;
+                console.log("Can u work???");
 
                 if (doc.fields) {
                     if (doc.fields.highScore) currentHigh = parseInt(doc.fields.highScore.integerValue || "0");
@@ -105,10 +109,12 @@ var FirebaseBridgeLib = {
                     headers: headers,
                     body: JSON.stringify(patchBody)
                 });
+                console.log("Fetch work???");
             })
             .then(function (res) { return res.json; })
             .then(function (data) { console.log("User Profile updated"); })
             .catch(function (err) { console.error("User PATCH failed", e); })
+        console.log("Submit work???");
     }
 }
 
