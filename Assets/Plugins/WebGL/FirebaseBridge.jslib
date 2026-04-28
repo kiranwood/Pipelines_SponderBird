@@ -113,7 +113,7 @@ var FirebaseBridgeLib = {
             })
             .then(function (res) { return res.json; })
             .then(function (data) { console.log("User Profile updated"); })
-            .catch(function (err) { console.error("User PATCH failed", e); })
+            .catch(function (err) { console.error("User PATCH failed", err); })
         console.log("Submit work???");
     }
 }
