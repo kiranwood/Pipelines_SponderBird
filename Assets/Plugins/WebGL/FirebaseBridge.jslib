@@ -41,7 +41,6 @@ var FirebaseBridgeLib = {
     SubmitScoreToFirestore: function (jsonBodyPtr) {
         var jsonBody = UTF8ToString(jsonBodyPtr);
         var parsed = JSON.parse(jsonBody);
-        console.log("Submit Score");
 
         var auth = window.__fbAuth;
         if (!auth || !auth.idToken || !auth.projectId) {
@@ -50,9 +49,6 @@ var FirebaseBridgeLib = {
         }
 
         var payload = JSON.parse(atob(auth.idToken.split('.')[1]));
-        console.log("Token expires at:", new Date(payload.exp * 1000));
-        console.log("Current time:", new Date());
-        console.log("Is expired:", Date.now() >= payload.exp * 1000);
 
         var baseUrl = "https://firestore.googleapis.com/v1/projects/" + auth.projectId + "/databases/(default)/documents";
 
@@ -77,7 +73,7 @@ var FirebaseBridgeLib = {
             body: JSON.stringify(scoreDoc)
         })
             .then(function (res) { return res.json(); })
-            .then(function (data) { console.log("Score saved: ", data.name); })
+            .then(function (data) { console.log("Score saved: ", data.score); })
             .catch(function (err) { console.error("Score POST failed", err); } )
 
         console.log("Submit Scores???");
