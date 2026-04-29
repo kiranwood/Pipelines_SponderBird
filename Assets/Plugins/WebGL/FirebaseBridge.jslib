@@ -57,13 +57,16 @@ var FirebaseBridgeLib = {
             "Authorization": "Bearer " + auth.idToken
         };
 
+        var startTime = new Date(new Date().getTime() - parsed.duration * 1000).toISOString();
+
         var scoreDoc = {
             fields: {
                 userId: { stringValue: auth.uid },
                 score: { integerValue: String(parsed.score) },
                 pipes: { integerValue: String(parsed.pipes) },
                 duration: { integerValue: String(parsed.duration) },
-                timestamp: { timestampValue: new Date().toISOString()}
+                startTime: { timestampValue: startTime}
+                endTime: { timestampValue: new Date().toISOString()}
             }
         };
 

@@ -65,7 +65,8 @@ public class ScoreManager : MonoBehaviour
         if (FirebaseManager.Instance != null)
         {
             int duration = Mathf.RoundToInt(Time.time - sessionStartTime);
-            FirebaseManager.Instance.SubmitScore(currentScore, pipesPassed, duration );
+
+            FirebaseManager.Instance.SubmitScore(currentScore, pipesPassed, duration);
         }
     }
 
