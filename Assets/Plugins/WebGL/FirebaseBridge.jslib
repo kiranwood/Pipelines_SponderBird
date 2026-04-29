@@ -109,7 +109,7 @@ var FirebaseBridgeLib = {
                     }
                 };
 
-                return fetch(userDocUrl + "?updateMask.fieldPaths=highScore&updateMask.fieldPaths=gamesPlayed", {
+                return fetch(userDocUrl + "?updateMask.fieldPaths=displayName&updateMask.fieldPaths=highScore&updateMask.fieldPaths=gamesPlayed", {
                     method: "PATCH",
                     headers: headers,
                     body: JSON.stringify(patchBody)
