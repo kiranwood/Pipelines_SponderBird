@@ -81,7 +81,7 @@ public class FirebaseManager : MonoBehaviour
     [System.Serializable]
     private class ScorePayload
     {
-        public string displayName,
+        public string displayName;
         public int score;
         public int pipes; 
         public int duration;
