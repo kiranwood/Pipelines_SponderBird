@@ -103,7 +103,7 @@ var FirebaseBridgeLib = {
 
                 var patchBody = {
                     fields: {
-                        displayName: { stringValue: parsed.displayName  }
+                        displayName: { stringValue: parsed.displayName  },
                         highScore: { integerValue: String(newHigh)},
                         gamesPlayed: {integerValue: String(newGames)}
                     }
