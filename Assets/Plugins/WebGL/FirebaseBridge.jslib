@@ -73,7 +73,7 @@ var FirebaseBridgeLib = {
             body: JSON.stringify(scoreDoc)
         })
             .then(function (res) { return res.json(); })
-            .then(function (data) { console.log("Score saved: ", data.score); console.log(data); })
+            .then(function (data) { console.log("Score saved: ", data); })
             .catch(function (err) { console.error("Score POST failed", err); } )
 
         console.log("Submit Scores???");
