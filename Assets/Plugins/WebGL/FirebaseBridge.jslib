@@ -90,7 +90,7 @@ var FirebaseBridgeLib = {
         })
             .then(function (res) {return res.json(); })
             .then(function (doc) {
-                var curentHigh = 0;
+                var currentHigh = 0;
                 var currentGames = 0;
                 console.log("Can u work???");
 
