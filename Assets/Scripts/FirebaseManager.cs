@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -58,6 +59,7 @@ public class FirebaseManager : MonoBehaviour
 
         var payload = new ScorePayload
         {
+            displayName = DisplayName,
             score = score,
             pipes = pipes,
             duration = duration
@@ -79,6 +81,7 @@ public class FirebaseManager : MonoBehaviour
     [System.Serializable]
     private class ScorePayload
     {
+        public string displayName,
         public int score;
         public int pipes; 
         public int duration;
