@@ -79,8 +79,6 @@ var FirebaseBridgeLib = {
             .then(function (data) { console.log("Score saved: ", data); })
             .catch(function (err) { console.error("Score POST failed", err); } )
 
-        console.log("Submit Scores???");
-
         var userDocUrl = baseUrl + "/users/" + auth.uid;
 
         fetch(userDocUrl, {
@@ -91,7 +89,6 @@ var FirebaseBridgeLib = {
             .then(function (doc) {
                 var currentHigh = 0;
                 var currentGames = 0;
-                console.log("Can u work???");
 
                 if (doc.fields) {
                     if (doc.fields.highScore) currentHigh = parseInt(doc.fields.highScore.integerValue || "0");
@@ -114,12 +111,10 @@ var FirebaseBridgeLib = {
                     headers: headers,
                     body: JSON.stringify(patchBody)
                 });
-                console.log("Fetch work???");
             })
             .then(function (res) { return res.json; })
             .then(function (data) { console.log("User Profile updated"); })
             .catch(function (err) { console.error("User PATCH failed", err); })
-        console.log("Submit work???");
     }
 }
 
